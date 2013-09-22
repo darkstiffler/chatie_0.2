@@ -5,11 +5,14 @@
 	<% @messages.each do |m| %>
 	<div class="message">
 		Message Body: <%= m.body %><br>
-		Created <%= time_ago_in_words message.created_at %> ago.
 	</div>
 	<% end %>
 </div>
 
 <div id="text_box">
-	
+	<%= form_for :message do |f| %>
+	<%= f.label :mesage %>
+	<%= f.text_field :message %>
+	<%= f.submit "Post!", class: "btn btn-md btn-primary"%>
+	<% end %>
 </div>
