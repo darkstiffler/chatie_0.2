@@ -1,7 +1,10 @@
 class SiteController < ApplicationController
 
+	def message_params
+  		params.require(:message).permit(:body)
+   end
+
   def new
-  	@message = Message.new message_params
   end
 
   def index
@@ -9,13 +12,11 @@ class SiteController < ApplicationController
   end
 
   def create
-  	@message = Message.create message_params
+  	@message = Message.create
   	redirect_to root_path
    end
 
-  def message_params
-  	params.require(:message).permit(:body)
-  end
+  
 
 end
 
